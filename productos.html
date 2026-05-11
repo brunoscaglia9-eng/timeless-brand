@@ -47,53 +47,65 @@
       <!-- Product 1 -->
       <div class="product-card fade-in">
         <div class="img-container">
-          <img src="assets/product_puffer_1777595794439.png" alt="Puffer Jacket">
-        </div>
-        <div class="product-info">
-          <div class="product-details">
-            <span class="product-category">Abrigos</span>
-            <h3>Puffer Oversized Essential</h3>
+          <div class="carousel">
+            <img src="assets/Productos/Camperon Adidas/camperon1.png" alt="Camperón Adidas" class="carousel-img active">
+            <img src="assets/Productos/Camperon Adidas/camperon2.png" alt="Camperón Adidas" class="carousel-img">
+            <img src="assets/Productos/Camperon Adidas/camperon3.png" alt="Camperón Adidas" class="carousel-img">
+            <img src="assets/Productos/Camperon Adidas/camperon4.png" alt="Camperón Adidas" class="carousel-img">
+            <button class="carousel-btn prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-btn next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
           </div>
-          <span class="product-price">$85.000</span>
+        </div>
+        <div class="product-info" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+          <div style="display: flex; justify-content: space-between; width: 100%; align-items: flex-end;">
+            <div class="product-details">
+              <span class="product-category">Abrigos</span>
+              <h3>Camperón Adidas</h3>
+            </div>
+            <span class="product-price">$95.000</span>
+          </div>
+          <a href="producto.html?id=camperon-adidas" class="btn" style="width: 100%; text-align: center; padding: 0.6rem;">Ver Producto</a>
         </div>
       </div>
+
       <!-- Product 2 -->
-      <div class="product-card fade-in">
+      <div class="product-card fade-in" id="conjunto-jordan-card">
         <div class="img-container">
-          <img src="assets/product_hoodie_1777595781097.png" alt="Black Hoodie">
-        </div>
-        <div class="product-info">
-          <div class="product-details">
-            <span class="product-category">Buzos</span>
-            <h3>Hoodie Noir Minimalist</h3>
+          <!-- Azul Carousel -->
+          <div class="carousel color-carousel" data-color="azul">
+            <img src="assets/Productos/Conjunto Jordan/Azul/conjunto azul1.jpg" alt="Conjunto Jordan Azul" class="carousel-img active">
+            <img src="assets/Productos/Conjunto Jordan/Azul/conjunto azul2.png" alt="Conjunto Jordan Azul" class="carousel-img">
+            <img src="assets/Productos/Conjunto Jordan/Azul/conjunto azul3.png" alt="Conjunto Jordan Azul" class="carousel-img">
+            <img src="assets/Productos/Conjunto Jordan/Azul/conjunto azul4.png" alt="Conjunto Jordan Azul" class="carousel-img">
+            <img src="assets/Productos/Conjunto Jordan/Azul/conjunto azul5.png" alt="Conjunto Jordan Azul" class="carousel-img">
+            <button class="carousel-btn prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-btn next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
           </div>
-          <span class="product-price">$55.000</span>
-        </div>
-      </div>
-      <!-- Product 3 -->
-      <div class="product-card fade-in">
-        <div class="img-container">
-          <img src="assets/product_sneakers_1777595806862.png" alt="Sneakers">
-        </div>
-        <div class="product-info">
-          <div class="product-details">
-            <span class="product-category">Calzado</span>
-            <h3>Timeless High-Top</h3>
+          <!-- Gris Carousel -->
+          <div class="carousel color-carousel" data-color="gris" style="display: none;">
+            <img src="assets/Productos/Conjunto Jordan/Gris/conjunto gris 1.png" alt="Conjunto Jordan Gris" class="carousel-img active">
+            <img src="assets/Productos/Conjunto Jordan/Gris/conjunto gris2.png" alt="Conjunto Jordan Gris" class="carousel-img">
+            <img src="assets/Productos/Conjunto Jordan/Gris/conjunto gris 3.png" alt="Conjunto Jordan Gris" class="carousel-img">
+            <img src="assets/Productos/Conjunto Jordan/Gris/conjunto gris 4.png" alt="Conjunto Jordan Gris" class="carousel-img">
+            <img src="assets/Productos/Conjunto Jordan/Gris/conjunto gris 5.png" alt="Conjunto Jordan Gris" class="carousel-img">
+            <button class="carousel-btn prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-btn next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
           </div>
-          <span class="product-price">$120.000</span>
         </div>
-      </div>
-      <!-- Duplicate for layout purposes -->
-      <div class="product-card fade-in">
-        <div class="img-container">
-          <img src="assets/product_hoodie_1777595781097.png" alt="Black Hoodie Variant" style="filter: brightness(0.8);">
-        </div>
-        <div class="product-info">
-          <div class="product-details">
-            <span class="product-category">Buzos</span>
-            <h3>Hoodie Shadow Grey</h3>
+        <div class="product-info" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+          <div style="display: flex; justify-content: space-between; width: 100%; align-items: flex-end;">
+            <div class="product-details">
+              <span class="product-category">Conjuntos</span>
+              <h3>Conjunto Jordan</h3>
+            </div>
+            <span class="product-price">$80.000</span>
           </div>
-          <span class="product-price">$55.000</span>
+          <div class="color-options" style="display: flex; gap: 0.8rem; width: 100%; align-items: center;">
+            <span style="font-size: 0.9rem; font-weight: 600;">Color:</span>
+            <button class="color-btn active" data-target="azul" aria-label="Azul" style="background-color: #0b345c; width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--text-color); cursor: pointer; transition: transform 0.2s;"></button>
+            <button class="color-btn" data-target="gris" aria-label="Gris" style="background-color: #8c8c8c; width: 24px; height: 24px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s;"></button>
+          </div>
+          <a href="producto.html?id=conjunto-jordan" class="btn" style="width: 100%; text-align: center; padding: 0.6rem;">Ver Producto</a>
         </div>
       </div>
     </div>

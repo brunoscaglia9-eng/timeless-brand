@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Timeless Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .checkout-container {
+      max-width: 1000px;
+      margin: 100px auto 50px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .checkout-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        margin-top: 80px;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid var(--border-color);
+      background: var(--secondary-bg);
+      color: var(--text-color);
+      border-radius: 4px;
+      font-family: inherit;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .order-summary {
+      background: var(--secondary-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      height: fit-content;
+    }
+
+    .order-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .order-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .order-item-details h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .order-item-details p {
+      margin: 0;
+      color: #888;
+      font-size: 0.8rem;
+    }
+
+    .order-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 2px solid var(--border-color);
+    }
+
+    #pay-button {
+      width: 100%;
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="index.html">TIMELESS</a>
+    </div>
+    <div class="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">INICIO</a>
+      <a href="productos.html">PRODUCTOS</a>
+      <a href="contacto.html">CONTACTO</a>
+      <a href="#" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+      <button id="theme-toggle" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+    </nav>
+  </header>
+
+  <!-- Checkout Section -->
+  <div class="checkout-container fade-in">
+    <div class="checkout-form">
+      <h2 style="font-family: 'Oswald', sans-serif; margin-bottom: 2rem;">DATOS DE CONTACTO Y ENVÍO</h2>
+      <form id="checkoutForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">Nombre</label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Apellido</label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input type="tel" id="phone" name="phone" required placeholder="Ej: 11 1234-5678">
+        </div>
+        <div class="form-group">
+          <label for="address">Dirección de envío</label>
+          <input type="text" id="address" name="address" required placeholder="Calle y número">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">Ciudad</label>
+            <input type="text" id="city" name="city" required>
+          </div>
+          <div class="form-group">
+            <label for="zipCode">Código Postal</label>
+            <input type="text" id="zipCode" name="zipCode" required>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="order-summary">
+      <h2 style="font-family: 'Oswald', sans-serif; margin-bottom: 1.5rem;">RESUMEN DE COMPRA</h2>
+      <div id="summary-items">
+        <!-- Items will be populated here by JS -->
+      </div>
+      <div class="order-total">
+        <span>Total:</span>
+        <span id="summary-total">$0</span>
+      </div>
+      <button id="pay-button" class="btn" form="checkoutForm">Ir a Pagar</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TIMELESS BRAND</h3>
+        <p>Elevando el streetwear argentino con calidad y diseño atemporal.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Enlaces Rápidos</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Síguenos</h3>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Timeless Brand. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Load cart data
+      const stored = localStorage.getItem('timeless_cart');
+      const items = stored ? JSON.parse(stored) : [];
+      
+      if (items.length === 0) {
+        alert("Tu carrito está vacío. Serás redirigido a productos.");
+        window.location.href = "productos.html";
+        return;
+      }
+
+      const container = document.getElementById('summary-items');
+      const totalEl = document.getElementById('summary-total');
+      let total = 0;
+
+      container.innerHTML = items.map(item => {
+        const priceNum = parseInt(item.price.replace(/[^0-9]/g, ''));
+        total += priceNum * item.quantity;
+        return `
+          <div class="order-item">
+            <img src="${item.image}" alt="${item.title}">
+            <div class="order-item-details">
+              <h4>${item.title}</h4>
+              <p>${item.price} x ${item.quantity}</p>
+              ${item.colorName ? `<p>Color: ${item.colorName}</p>` : ''}
+              ${item.size ? `<p>Talle: ${item.size}</p>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      totalEl.textContent = '$' + total.toLocaleString('es-AR');
+
+      // Handle form submission
+      document.getElementById('checkoutForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const btn = document.getElementById('pay-button');
+        btn.textContent = 'Procesando...';
+        btn.disabled = true;
+
+        const formData = {
+          firstName: document.getElementById('firstName').value,
+          lastName: document.getElementById('lastName').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          address: document.getElementById('address').value,
+          city: document.getElementById('city').value,
+          zipCode: document.getElementById('zipCode').value
+        };
+
+        try {
+          const response = await fetch('http://localhost:3000/api/checkout', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ items, buyer: formData })
+          });
+          
+          if (!response.ok) throw new Error('Error al crear preferencia');
+          
+          const data = await response.json();
+          // Redirect to Mercado Pago
+          window.location.href = data.init_point;
+        } catch (error) {
+          console.error(error);
+          alert('Hubo un error al conectar con el servidor.');
+          btn.textContent = 'Ir a Pagar';
+          btn.disabled = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

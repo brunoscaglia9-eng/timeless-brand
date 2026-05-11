@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeless Brand | Producto</title>
+  <meta name="description" content="Detalles del producto">
+  <link rel="icon" type="image/png" href="assets/timeless logosinfondo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header style="background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color);">
+    <div class="logo">
+      <img src="assets/timeless logosinfondo.png" alt="Timeless Logo" class="logo-img">
+      TIMELESS
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button class="cart-btn" aria-label="Carrito">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </button>
+      <button class="hamburger" aria-label="Menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Product Details Section -->
+  <main style="padding: 8rem 5% 4rem; min-height: 80vh;">
+    <div id="product-container" style="display: flex; flex-wrap: wrap; gap: 4rem; max-width: 1200px; margin: 0 auto; display: none;">
+      <!-- Product images will be rendered here -->
+      <div id="product-images" style="flex: 1; min-width: 300px; position: relative;">
+      </div>
+
+      <!-- Product info will be rendered here -->
+      <div id="product-info-detail" style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1.5rem;">
+      </div>
+    </div>
+    <div id="product-not-found" style="display: none; text-align: center; padding: 4rem 0;">
+      <h2>Producto no encontrado</h2>
+      <p style="margin-top: 1rem; color: #888;">El producto que buscas no existe o fue removido.</p>
+      <a href="productos.html" class="btn" style="margin-top: 2rem;">Volver a Productos</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom: 1rem;">
+          <img src="assets/timeless logosinfondo.png" alt="Timeless Logo" class="logo-img">
+          TIMELESS
+        </div>
+        <p style="color: #888; font-size: 0.9rem;">Elevando el streetwear en Argentina.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Envíos y Devoluciones</a></li>
+          <li><a href="#">Guía de Talles</a></li>
+          <li><a href="#">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/timelessbrand.__/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Timeless Brand. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="producto.js"></script>
+</body>
+</html>
