@@ -90,9 +90,9 @@ app.post('/api/checkout', async (req, res) => {
             },
             external_reference: orderId.toString(), // ID que vincula el pago con nuestra DB
             back_urls: {
-              success: 'http://localhost:5500/index.html', // Cambiar en producción
-              failure: 'http://localhost:5500/index.html',
-              pending: 'http://localhost:5500/index.html'
+              success: 'https://www.tudominio.com/index.html', // Cambiar en producción
+              failure: 'https://www.tudominio.com/index.html',
+              pending: 'https://www.tudominio.com/index.html'
             },
             auto_return: 'approved',
             // notification_url: 'https://TU-URL-PUBLICA.com/webhook' // Necesitas HTTPS para probar webhooks (ngrok)
