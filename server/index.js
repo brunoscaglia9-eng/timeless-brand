@@ -75,33 +75,38 @@ app.post('/api/checkout', async (req, res) => {
 
       const orderId = this.lastID; // ID generado por SQLite
 
-      // 2. Crear preferencia en Mercado Pago
-      const preference = new Preference(client);
-      const response = await preference.create({
-        body: {
-          items: mpItems,
-          payer: {
-            name: buyer.firstName,
-            surname: buyer.lastName,
-            email: buyer.email,
-            phone: { area_code: '', number: buyer.phone },
-            address: { zip_code: buyer.zipCode, street_name: buyer.address, street_number: '' }
-          },
-          external_reference: orderId.toString(), // ID que vincula el pago con nuestra DB
-          back_urls: {
-            success: 'http://localhost:5500/index.html', // Cambiar en producción
-            failure: 'http://localhost:5500/index.html',
-            pending: 'http://localhost:5500/index.html'
-          },
-          auto_return: 'approved',
-          // notification_url: 'https://TU-URL-PUBLICA.com/webhook' // Necesitas HTTPS para probar webhooks (ngrok)
-        }
-      });
+      try {
+        // 2. Crear preferencia en Mercado Pago
+        const preference = new Preference(client);
+        const response = await preference.create({
+          body: {
+            items: mpItems,
+            payer: {
+              name: buyer.firstName,
+              surname: buyer.lastName,
+              email: buyer.email,
+              phone: { area_code: '', number: buyer.phone },
+              address: { zip_code: buyer.zipCode, street_name: buyer.address, street_number: '' }
+            },
+            external_reference: orderId.toString(), // ID que vincula el pago con nuestra DB
+            back_urls: {
+              success: 'http://localhost:5500/index.html', // Cambiar en producción
+              failure: 'http://localhost:5500/index.html',
+              pending: 'http://localhost:5500/index.html'
+            },
+            auto_return: 'approved',
+            // notification_url: 'https://TU-URL-PUBLICA.com/webhook' // Necesitas HTTPS para probar webhooks (ngrok)
+          }
+        });
 
-      res.json({
-        id: response.id,
-        init_point: response.init_point
-      });
+        res.json({
+          id: response.id,
+          init_point: response.init_point
+        });
+      } catch (mpError) {
+        console.error('Error creando preferencia en MP:', mpError);
+        res.status(500).json({ error: 'Error comunicándose con Mercado Pago' });
+      }
     });
 
   } catch (error) {
